@@ -33,4 +33,11 @@ ng build --output-path=../public
 
 ## Resources
 
-Couchbase - [http://www.couchbase.com](http://www.couchbase.com)
+## to install NodeJs 
+yum install npm
+npm install -g @angular/cli
+
+## to build project 
+npm install 
+ng build 
+
