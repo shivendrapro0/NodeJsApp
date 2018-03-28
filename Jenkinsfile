@@ -1,22 +1,23 @@
 pipeline { 
+	agent any
 	stages {
 		stage('build app') {
-			step {
+			steps {
 				println("npm install")
 			}
 		}
 		stage('build docker image') {
-			step {
+			steps {
 				println("docker build -t frontend .")
 			}
 		}
 		stage('remove container') {
-			step {
+			steps {
 				println("docker stop nodejscontainer")
 			}
 		}
 		stage('run container') {
-			step {
+			steps {
 				println("docker run")
 			}
 		}
