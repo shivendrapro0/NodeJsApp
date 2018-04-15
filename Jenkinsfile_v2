@@ -1,0 +1,29 @@
+pipeline { 
+	agent any
+	def app
+	stages {
+                stage('Build NodeApp') {
+                    steps {
+                        sh 'npm install'
+                        sh 'ng build'
+                    }
+                }
+                stage('build docker') {
+			agent { dockerfile true }
+       	             	steps {
+				app = docker.build("nodeapptest1")
+			}
+			steps {
+				app.inside { 
+					sh 'echo "Test Passed"'
+				}
+			}
+			steps {
+				docker.withRegistry('https://registory.hub.docker.com','docker-hub-credentails') { 
+				app.push("${env.BUILD_NUMBER}")
+				app.push("latest")
+				}
+			}
+                }
+        }
+}
