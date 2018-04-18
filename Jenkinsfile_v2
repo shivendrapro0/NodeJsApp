@@ -1,6 +1,12 @@
 node {
     def app
 
+    stage('scm checkout') {
+        /* Let's make sure we have the repository cloned to our workspace */
+
+	git url:'https://github.com/shivendrapro0/NodeJsApp.git'
+    }
+
     stage('Build Node Application') {
         /* Let's make sure we have the repository cloned to our workspace */
 
