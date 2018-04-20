@@ -31,12 +31,12 @@ node {
         }
     }
 
-    stage('Run Docker') {
-
-       docker.image('nodejsapp').withRun('-p 80:80 ') { 
-       }
-
-    }
+#    stage('Run Docker') {
+#
+#       docker.image('nodejsapp').withRun('-p 80:80 ') { 
+#       }
+#
+#    }
 
     stage('Release Image') {
         /* Finally, we'll push the image with two tags:
