@@ -33,8 +33,7 @@ node {
 
     stage('Run Docker') {
 
-       docker.image('nodejsapp').withRun('-p 80:80 ') { c ->
-	sh 'node --version'
+       docker.image('nodejsapp').withRun('-p 80:80 ') { 
        }
 
     }
